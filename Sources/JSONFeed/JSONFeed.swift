@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct JSONFeed: Codable {
+public struct JSONFeed: Codable {
     
     let version: String
     let title: String
@@ -17,7 +17,7 @@ struct JSONFeed: Codable {
     let expired: Bool?
     let hubs: [Hub]?
     
-    struct Item: Codable {
+    public struct Item: Codable {
         
         let id: AmbiguouslyTypedIdentifier
         let url: String?
@@ -34,7 +34,7 @@ struct JSONFeed: Codable {
         let tags: [String]?
         let attachments: [Attachment]?
         
-        struct Attachment: Codable {
+        public struct Attachment: Codable {
             
             let url: String
             let mimeType: String?
@@ -44,14 +44,14 @@ struct JSONFeed: Codable {
         }
     }
     
-    struct Author: Codable {
+    public struct Author: Codable {
         
         let name: String?
         let url: String?
         let avatar: String?
     }
     
-    struct Hub: Codable {
+    public struct Hub: Codable {
         
         let type: String
         let url: String
