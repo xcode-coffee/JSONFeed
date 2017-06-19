@@ -238,6 +238,10 @@ extension JSONFeed.Item {
         
         let stringValue: String
         
+        init(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        
         init(from decoder: Decoder) throws {
             let container: SingleValueDecodingContainer
             do { container = try decoder.singleValueContainer() } catch { throw error }
