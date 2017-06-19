@@ -1,0 +1,15 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "",
+    "items": [
+        {
+            "id": 12345
+        },
+        {
+            "id": 12345.9
+        },
+        {
+            "id": ""
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "user_comment": "This feed allows you to read the posts from this site in any feed reader that supports the JSON Feed format. To add this feed to your reader, copy the following URL -- https://www.manton.org/feed/json -- and add it your reader.",
+    "home_page_url": "https://www.manton.org",
+    "feed_url": "https://www.manton.org/feed/json",
+    "title": "Manton Reece",
+    "description": "",
+    "items": [
+        {
+            "id": "https://www.manton.org/2017/06/5312.html",
+            "url": "https://www.manton.org/2017/06/5312.html",
+            "title": "",
+            "content_html": "<p>Whenever there&#8217;s a new Nintendo announcement at E3, I remember that I still own @wii on Twitter. No one knows why.</p>\n",
+            "date_published": "2017-06-13T14:36:46+00:00",
+            "date_modified": "2017-06-13T14:36:46+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/5310.html",
+            "url": "https://www.manton.org/2017/06/5310.html",
+            "title": "",
+            "content_html": "<p>I expect that iOS 11 will get developers excited about building universal apps again. I know it has for me.</p>\n",
+            "date_published": "2017-06-13T14:09:03+00:00",
+            "date_modified": "2017-06-13T14:09:03+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/apple-podcast-spec-changes.html",
+            "url": "https://www.manton.org/2017/06/apple-podcast-spec-changes.html",
+            "title": "Apple podcast spec changes",
+            "content_html": "<p>At WWDC last week, <a href=\"https://developer.apple.com/videos/play/wwdc2017/512/\">Apple introduced changes</a> to their RSS feed extension for podcasts. Before reviewing the session, I was worried that Apple would be moving to Apple News Format instead of RSS. That would&#8217;ve been a major setback for the open web, since Apple News Format is such an app-specific, closed format, controlled by a single company. Luckily the actual changes Apple introduced are pretty minor and shouldn&#8217;t upset the status quo much.</p>\n<p>There are 2 sets of changes: support for supplementary episode types, like bonus content; and metadata for show seasons, likely influenced by popular shows like Serial, where people new to podcasts might be confused about where to start listening. There are a few new tags for these types of shows under the <code>itunes</code> RSS namespace.</p>\n<p>Episode type is the simplest change. It looks like <code><br />\n<span style=\"color: rgb(227, 63, 27);\">&lt;itunes:episodeType</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">full</span><span style=\"color: rgb(227, 63, 27);\">&lt;/itunes:episodeType&gt;</span></code> and can have values &#8220;full, &#8220;trailer&#8221;, or &#8220;bonus&#8221;.</p>\n<p>For seasons, the episode number and season number can be split into separate elements. It&#8217;s compatible with the traditional RSS title, so there&#8217;s little downside except extra clutter in your RSS feed. Here&#8217;s an example:</p>\n<pre><code><span style=\"color: rgb(227, 63, 27);\">&lt;channel</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n&nbsp;&nbsp;</span><span style=\"color: rgb(227, 63, 27);\">&lt;itunes:type</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">serial</span><span style=\"color: rgb(227, 63, 27);\">&lt;/itunes:type&gt;</span><span style=\"color: rgb(87, 78, 67);\">&nbsp;</span><span style=\"color: rgb(173, 163, 127);\">&lt;!-- or \"episodic\" --&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n&nbsp;&nbsp;...\n\n&nbsp;&nbsp;</span><span style=\"color: rgb(227, 63, 27);\">&lt;item</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"color: rgb(227, 63, 27);\">&lt;title</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">S01 Episode 01: The First Episode</span><span style=\"color: rgb(227, 63, 27);\">&lt;/title&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"color: rgb(227, 63, 27);\">&lt;itunes:title</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">The First Episode</span><span style=\"color: rgb(227, 63, 27);\">&lt;/itunes:title&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"color: rgb(227, 63, 27);\">&lt;itunes:episode</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">1</span><span style=\"color: rgb(227, 63, 27);\">&lt;/itunes:episode&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"color: rgb(227, 63, 27);\">&lt;itunes:season</span><span style=\"color: rgb(227, 63, 27);\">&gt;</span><span style=\"color: rgb(87, 78, 67);\">1</span><span style=\"color: rgb(227, 63, 27);\">&lt;/itunes:season&gt;\n&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: rgb(87, 78, 67);\">...</span>\n&nbsp;&nbsp;&lt;/item&gt;</span><span style=\"color: rgb(87, 78, 67);\">\n\n</span><span style=\"color: rgb(227, 63, 27);\">&lt;/channel&gt;</span></code></pre>\n<p><a href=\"https://sixcolors.com/post/2017/06/apple-makes-major-podcast-updates/\">Jason Snell\u2019s first reaction</a> to these changes was positive:</p>\n<blockquote><p>\n  I\u2019m excited by these changes because, yes, some of my podcasts are seasonal and are best consumed from the first episode onward. I\u2019ll be adjusting my own podcast feeds to take advantage of Apple\u2019s extensions as soon as it makes sense to do so.\n</p></blockquote>\n<p>Ben Thompson covers the extensions briefly and then <a href=\"https://stratechery.com/2017/podcasts-analytics-and-centralization/\">focuses his weekly article</a> on analytics and podcast advertising:</p>\n<blockquote><p>\n  The new extensions are a nice addition, and a way in which Apple can enhance the user experience to the benefit of everyone. As you might expect, though, I\u2019m particularly interested in the news about analytics. Problem solved, right? Or is it problem caused?\n</p></blockquote>\n<p>After reading Ben&#8217;s take, I don&#8217;t think these changes are significant enough to have much effect right away. That should be a relief to all of us who love podcasts and don&#8217;t want a shake-up.</p>\n<p>When designing JSON Feed, we resisted adding everything that Apple Podcasts needs to the official spec. Now that <a href=\"http://www.manton.org/2017/05/json-feed-for-podcasts.html\">more podcast tools have adopted JSON Feed</a>, I expect there to be a discussion among developers about the best path forward for podcast-specific extensions in JSON Feed. That discussion should now include support for show seasons, too.</p>\n",
+            "date_published": "2017-06-13T13:34:45+00:00",
+            "date_modified": "2017-06-13T13:40:40+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/san-jose-is-less-crowded.html",
+            "url": "https://www.manton.org/2017/06/san-jose-is-less-crowded.html",
+            "title": "San Jose is less crowded",
+            "content_html": "<p>On Core Intuition <a href=\"http://www.coreint.org/2017/06/episode-285-i-got-to-see-the-drainage-ditch/\">last week</a>, I said San Jose was &#8220;more confined&#8221; than San Francisco. I meant that mostly as a good thing, although I do miss the open spaces in San Francisco: the parks and incredible views near the water. <a href=\"http://shapeof.com/archives/2017/6/wwdc_2017_review.html\">Gus Mueller has a post</a> about how San Jose felt closer together and less crowded:</p>\n<blockquote><p>\n  In San Jose you had a clear view of the sidewalks and you generally knew who was a developer and who was a local. And because it wasn&#8217;t so crowded, you ran into people all the time. You didn&#8217;t have to organize meetups, you just kind of went out and you knew you&#8217;d run into someone to hang with.\n</p></blockquote>\n<p>Gus was also a guest with Marco Arment <a href=\"http://www.therunloop.com/7\">on The Run Loop podcast</a>. They talked a lot about the different feel of WWDC in San Jose. Seems a universal opinion that San Jose is a good fit.</p>\n",
+            "date_published": "2017-06-13T09:59:43+00:00",
+            "date_modified": "2017-06-13T11:47:51+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/game-5.html",
+            "url": "https://www.manton.org/2017/06/game-5.html",
+            "title": "Game 5",
+            "content_html": "<p><em>&#8220;We remember what happened last year and how it felt in that locker room. We used it and built on it. And got back here. It&#8217;s amazing. It makes last year okay.&#8221; \u2014\u00a0Tim Duncan, after game 5 in 2014</em></p>\n<p>I said on <a href=\"http://technicalfoul.fm/\">Technical Foul</a> last year that the championship wouldn&#8217;t mean as much to Kevin Durant if he won in Oakland instead of Oklahoma City. But there&#8217;s something I didn&#8217;t realize until these playoffs: maybe it&#8217;s not going to mean quite as much to the rest of the Warriors either, compared to if they had won without Durant. Compared to if they had come back with the same team again, as the Spurs had done in 2014 after letting the series slip away the year before.</p>\n<p>Kevin Durant was the obvious finals MVP tonight. He was the reason \u2014 with help from Zaza Pachulia taking out Kawhi Leonard \u2014\u00a0that the Warriors coasted through the first few rounds of the playoffs. He was the reason that LeBron James could <em>average a triple double</em> for the finals and it still wasn&#8217;t enough.</p>\n<p>It was a good NBA regular season. It was a good last few games of the finals. But the playoffs were disappointing to many people because it didn&#8217;t look like the Warriors were going to have to work very hard to win. It wasn&#8217;t the comeback story it would&#8217;ve been without Durant. I&#8217;m hoping next year will be different.</p>\n",
+            "date_published": "2017-06-13T00:52:55+00:00",
+            "date_modified": "2017-06-13T00:52:55+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/5302.html",
+            "url": "https://www.manton.org/2017/06/5302.html",
+            "title": "",
+            "content_html": "<p>Rolled out a few improvements to photo cross-posting in Micro.blog, so that it detects more img tags.</p>\n",
+            "date_published": "2017-06-12T16:56:30+00:00",
+            "date_modified": "2017-06-12T16:56:30+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/5300.html",
+            "url": "https://www.manton.org/2017/06/5300.html",
+            "title": "",
+            "content_html": "<p>A little bummed that I also lost my IndieWebCamp sticker when Apple replaced my MacBook screen. Gotta attend another Homebrew Website Club.</p>\n",
+            "date_published": "2017-06-12T15:30:02+00:00",
+            "date_modified": "2017-06-12T15:30:02+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/5299.html",
+            "url": "https://www.manton.org/2017/06/5299.html",
+            "title": "",
+            "content_html": "<p>Short-lived experiment of using the iPad Pro exclusively. Picking up my MacBook Pro at the Apple Store this afternoon. Apparently the screen needed replacing too. Happy to have AppleCare on this one.</p>\n",
+            "date_published": "2017-06-12T13:46:43+00:00",
+            "date_modified": "2017-06-12T13:46:43+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/10-5-inch-ipad-pro-resolution.html",
+            "url": "https://www.manton.org/2017/06/10-5-inch-ipad-pro-resolution.html",
+            "title": "10.5-inch iPad Pro resolution",
+            "content_html": "<p><a href=\"https://www.macstories.net/stories/the-10-5-ipad-pro-future-proof/\">Federico Viticci reviews the new 10.5-inch iPad Pro</a> at MacStories. On the screen size:</p>\n<blockquote><p>\n  While some had assumed that Apple would take the same 2732 x 2048 display of the 12.9\u201d iPad Pro and condense it to a smaller size, the company has introduced a new resolution in the iOS device matrix \u2013 a decision, I think, made to hit 264ppi on a 10.5\u201d panel while retaining UI elements that are large and comfortable to tap. Cramming the large iPad\u2019s display in this model might have resulted in a richer multitasking experience at an even smaller scale, but I believe touch usability would have suffered.\n</p></blockquote>\n<p>I assumed until reading Federico\u2019s review that when my 12.9-inch iPad Pro was ready for an upgrade, I\u2019d downsize to the new 10.5-inch. That no longer seems like a good choice. While my MacBook Pro is getting repaired this week, I\u2019m using the 12.9 as my exclusive computer. The extra resolution in split view is really great. I don\u2019t think I\u2019d want to give that up.</p>\n",
+            "date_published": "2017-06-12T08:06:22+00:00",
+            "date_modified": "2017-06-12T08:06:22+00:00",
+            "author": {
+                "name": "manton"
+            }
+        },
+        {
+            "id": "https://www.manton.org/2017/06/the-ios-11-app-store-redesign-story.html",
+            "url": "https://www.manton.org/2017/06/the-ios-11-app-store-redesign-story.html",
+            "title": "The iOS 11 App Store redesign story",
+            "content_html": "<p><a href=\"http://www.manton.org/2014/02/ending_the_app.html\">Three years ago</a> I wrote that Apple should end the App Store top 200 lists, learning from Beats Music how to double down on curation:</p>\n<blockquote><p>\n  <a href=\"http://www.manton.org/2014/02/we_love_music.html\">I wrote about Beats Music earlier</a>, how it underscored to me that Apple needs to find the next product category to fall in love with, just like they used to feel about music. Of course we know that Apple already loves apps. Show that by doubling down on featured apps, staff picks, and app playlists.\n</p></blockquote>\n<p>And:</p>\n<blockquote><p>\n  Apple shouldn\u2019t wait until Thursday to feature a few great apps. Feature apps <em>all the time</em>. They\u2019re on the right track with some of the \u201cbest of\u201d sections in the store, and with the \u201cNear Me\u201d feature. Go a little further and it will make all the difference to bubble up great apps, and let the junk in the App Store fade away.\n</p></blockquote>\n<p>I think they&#8217;ve done it for iOS 11. While the top charts aren&#8217;t completely gone, they no longer dominate the App Store user experience. Featured apps are center stage.</p>\n<p>Product manager Pedraum Pardehpoosh at WWDC even used the same phrase &#8220;double down&#8221; when describing Apple\u2019s new focus on editorial content. During <a href=\"https://developer.apple.com/videos/play/wwdc2017/301/\">session 301</a>, he said:</p>\n<blockquote><p>\n  We thought this was a perfect time to double down on the editorial curation that\u2019s distinguished the App Store since its conception.\n</p></blockquote>\n<p><a href=\"http://joecieplinski.com/blog/2017/06/10/information-density-and-the-new-app-store-design/\">Joe Cieplinski addresses the information density</a> in the new App Store, pointing out that apps will be featured every day:</p>\n<blockquote><p>\n  That\u2019s a big change from the weekly update schedule Apple has maintained since the beginning of the App Store. You can\u2019t name something \u201cToday\u201d and then not update it every day. So instead of a few new items getting featured once a week, something new will be featured every single day.\n</p></blockquote>\n<p>The &#8220;Today&#8221; tab is effectively a blog: reverse-chronological posts about what&#8217;s noteworthy in the store. It\u2019s a much better default UI for content that is actively curated.</p>\n<p>The old App Store was designed like a database. Databases are good at showing grids and lists from an algorithm. But the App Store should <em>tell a story</em> about new apps. A blog-like format is the best way to do that.</p>\n<p>This plays to Apple\u2019s strengths in design and taste. Where Google might hire more engineers to improve their store, Apple should hire more writers.</p>\n<p>So far I\u2019ve only used the new App Store on my iPad, and only for a few days. After we\u2019ve all lived with it for a few months, it will be easier to judge whether it works for developers. But it\u2019s almost exactly what I was hoping for a few years ago. This redesign for iOS 11 is one of my favorite things to come out of WWDC.</p>\n",
+            "date_published": "2017-06-12T07:25:57+00:00",
+            "date_modified": "2017-06-12T07:27:49+00:00",
+            "author": {
+                "name": "manton"
+            }
+        }
+    ]
+}
