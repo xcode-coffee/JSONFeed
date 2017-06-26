@@ -47,7 +47,7 @@ class JSONFeedTests: XCTestCase {
             }
             
             let titles = feed!.items[0..<5].map { $0.title ?? "No title" }
-            print(titles.joined(separator: "\n"))
+            print("\n" + titles.joined(separator: "\n") + "\n")
             
             e.fulfill()
         }
