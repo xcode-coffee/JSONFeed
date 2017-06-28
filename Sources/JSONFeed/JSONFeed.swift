@@ -3,9 +3,9 @@ import Foundation
 
 public struct JSONFeed: Codable {
     
-    let version: String
-    let title: String
-    let items: [Item]
+    let version: String?
+    let title: String?
+    let items: [Item]?
     let homePageUrl: String?
     let feedUrl: String?
     let description: String?
@@ -36,7 +36,7 @@ public struct JSONFeed: Codable {
         
         public struct Attachment: Codable {
             
-            let url: String
+            let url: String?
             let mimeType: String?
             let title: String?
             let sizeInBytes: Double?
@@ -53,8 +53,8 @@ public struct JSONFeed: Codable {
     
     public struct Hub: Codable {
         
-        let type: String
-        let url: String
+        let type: String?
+        let url: String?
     }
 }
 
@@ -142,10 +142,8 @@ extension JSONFeed {
     
     static func make(from data: Data) throws -> JSONFeed {
         
-        let decoder = defaultDecoder
-        
         do {
-            let feed = try decoder.decode(JSONFeed.self, from: data)
+            let feed = try defaultDecoder.decode(JSONFeed.self, from: data)
             return feed
         } catch {
             throw error
@@ -167,10 +165,8 @@ extension JSONFeed {
     
     func encodeToData() throws -> Data {
         
-        let encoder = JSONFeed.defaultEncoder
-        
         do {
-            let data = try encoder.encode(self)
+            let data = try JSONFeed.defaultEncoder.encode(self)
             return data
         } catch {
             throw error
